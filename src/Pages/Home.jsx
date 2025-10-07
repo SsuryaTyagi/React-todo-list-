@@ -9,41 +9,40 @@ export default function Home({onDel,onInp,delValue}) {
   const textRef = useRef();
   const [show, setShow] = useState(true);
   const [task, setTask] = useState([]);
-  // const [deltask, setDelTask] = useState(false);
 
-
-  const handleClick = (e) => {
-    console.log(e.target.tagName);
-    if (e.target.id === "button" || e.target.id ==="box_1" ) {
-      console.log(inputRef.value);  
-      const value = inputRef.current.value.trim();
-      const value2= textRef.current.value.trim();
-      // console.log(value2)
-      setShow(true);
-      if (value === "" && value2 ==="") return;
-
-      const updatedTasks = [...task,{title:value, text:value2}];
-      setTask(updatedTasks);
-      localStorage.setItem("tasks", JSON.stringify(updatedTasks)); // ✅ updated state save
-
-      console.log(task);
-      inputRef.current.value="";
-      textRef.current.value="";
-    }
-    if (e.target.tagName === "INPUT") {
-      setShow(false);
-      // localStorage.clear();
-    }
-    
-  };
-
-  useEffect(() =>{
+  useEffect(() => {
     const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
     setTask(savedTasks);
   }, []);
 
-  // const updateTask = task.filter((t)=>t.title !== delValue.title)
-  // console.log(updateTask);
+  const handleClick = (e) => {
+    if (e.target.id === "button") {
+      const title = inputRef.current.value.trim();
+      const text = textRef.current.value.trim();
+      if (!title && !text) return;
+
+      const updatedTasks = [...task, { title, text }];
+      setTask(updatedTasks);
+      localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+
+      inputRef.current.value = "";
+      textRef.current.value = "";
+      setShow(true);
+    }
+    if (e.target.tagName === "INPUT") setShow(false);
+  };
+
+  const handleDelete = (note) => {
+    const updatedTasks = task.filter(
+      (t) => !(t.title === note.title && t.text === note.text)
+    );
+    setTask(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+
+    const updatedDeleted = [...delValue, note];
+    onDel(updatedDeleted); // update App
+  };
+
 
 
   return (
@@ -94,7 +93,7 @@ export default function Home({onDel,onInp,delValue}) {
           <br />
           <div className="grid grid-cols-2 lg:grid-cols-4 lg:pl-4 pl-10 w-[300px] lg:w-[1670px]">
             {task.map((data, index) => {  
-              return <List {...data} onDel={onDel}  onInp={onInp} key={index}/>
+              return <List {...data} onDel={handleDelete}  onInp={onInp} key={index}/>
             })}
           </div>
         </div>

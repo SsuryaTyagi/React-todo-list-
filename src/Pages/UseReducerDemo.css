@@ -1,0 +1,204 @@
+/* ===== Todo App Styling ===== */
+
+.todo-app-wrapper123456 {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #fefefe;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.todo-app-wrapper123456:hover {
+  transform: translateY(-2px);
+}
+
+.todo-app-header123456 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.todo-app-title123456 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.todo-app-subtitle123456 {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* ===== Input Section ===== */
+.todo-input-section123456 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.todo-form123456 {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.todo-input123456 {
+  flex: 1;
+  padding: 10px 14px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.todo-input123456:focus {
+  border-color: #007bff;
+}
+
+.todo-add-btn123456 {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.todo-add-btn123456:hover {
+  background: #0056d8;
+}
+
+/* ===== Controls Section ===== */
+.todo-controls123456 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.todo-count123456 {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.todo-filters123456 {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-btn123456 {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.filter-btn123456[aria-selected="true"] {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.filter-btn123456:hover {
+  background: #007bff;
+  color: white;
+}
+
+.clear-btn123456 {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.clear-btn123456:hover {
+  background: #b52a38;
+}
+
+/* ===== Todo List ===== */
+.todo-list123456 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item123456 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9f9f9;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: all 0.2s ease-in;
+}
+
+.todo-item123456:hover {
+  background: #f0f0f0;
+}
+
+.todo-text123456 {
+  margin-left: 8px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.todo-checkbox123456 {
+  accent-color: #007bff;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.todo-edit-btn123456,
+.todo-delete-btn123456 {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 6px;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.todo-edit-btn123456 {
+  color: #007bff;
+}
+
+.todo-delete-btn123456 {
+  color: #dc3545;
+}
+
+.todo-edit-btn123456:hover {
+  background: rgba(0, 123, 255, 0.1);
+}
+
+.todo-delete-btn123456:hover {
+  background: rgba(220, 53, 69, 0.1);
+}
+
+/* ===== Footer ===== */
+.todo-footer123456 {
+  text-align: center;
+  margin-top: 20px;
+  color: #777;
+  font-size: 0.85rem;
+}
+
+/* ===== Accessibility ===== */
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+}
